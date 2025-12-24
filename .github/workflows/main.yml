@@ -4,12 +4,21 @@ jobs:
   download:
     runs-on: ubuntu-latest
     steps:
-      - name: Pull and Save
+      - name: Maximize build space
         run: |
-          docker pull btpanel/btpanel:latest
-          docker save -o btpanel.tar btpanel/btpanel:latest
-      - name: Upload
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+      
+      - name: Pull and Save Image
+        run: |
+          # 更改为你需要的实际镜像名，例如 pch18/baota
+          docker pull pch18/baota:latest
+          docker save pch18/baota:latest | gzip > baota.tar.gz
+          
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: btpanel-tar-package
-          path: btpanel.tar
+          name: baota-package
+          path: baota.tar.gz
+          retention-days: 1
