@@ -13,8 +13,8 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull pch18/baota:latest
-          docker save pch18/baota:latest | gzip > baota.tar.gz
+          docker pull btpanel/baota:lnmp
+          docker save btpanel/baota:lnmp | gzip > baota.tar.gz
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
