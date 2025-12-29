@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull btpanel/baota:lnmp
-          docker save btpanel/baota:lnmp | gzip > baota.tar.gz
+          docker pull docker.io/flannel/flannel-cni-plugin:v1.2.0
+          docker save docker.io/flannel/flannel-cni-plugin:v1.2.0 | gzip > flannel-cni-plugin.tar.gz
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: baota-package
-          path: baota.tar.gz
+          name: flannel-cni-plugin-package
+          path: flannel-cni-plugin.tar.gz
           retention-days: 1
