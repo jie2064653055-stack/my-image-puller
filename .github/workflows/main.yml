@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull docker.io/flannel/flannel-cni-plugin:v1.2.0
-          docker save docker.io/flannel/flannel-cni-plugin:v1.2.0 -o flannel-cni-plugin.tar
+          docker pull docker.io/flannel/flannel:v0.22.3
+          docker save docker.io/flannel/flannel:v0.22.3 -o flannel.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: flannel-cni-plugin-package
-          path: flannel-cni-plugin.tar
+          name: flannel-package
+          path: flannel.tar
           retention-days: 1
