@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull kubernetesui/metrics-scraper:v1.0.8
-          docker save kubernetesui/metrics-scraper:v1.0.8 -o metrics-scraper.tar
+          docker pull kubernetesui/dashboard:v2.7.0
+          docker save kubernetesui/dashboard:v2.7.0 -o dashboard.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: metrics-scraper-package
-          path: metrics-scraper.tar
+          name: dashboard-package
+          path: dashboard.tar
           retention-days: 1
