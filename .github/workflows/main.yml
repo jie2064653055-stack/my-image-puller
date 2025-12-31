@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull prom/node-exporter:v1.6.1
-          docker save prom/node-exporter:v1.6.1 -o node-exporter.tar
+          docker pull kubernetesui/metrics-scraper:v1.0.8
+          docker save kubernetesui/metrics-scraper:v1.0.8 -o metrics-scraper.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: node-exporter-package
-          path: node-exporter.tar
+          name: metrics-scraper-package
+          path: metrics-scraper.tar
           retention-days: 1
