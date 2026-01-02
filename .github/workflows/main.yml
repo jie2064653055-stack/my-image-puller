@@ -13,8 +13,8 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull docker.io/library/openjdk:17
-          docker save docker.io/library/openjdk:17 -o openjdk17.tar
+          docker pull openjdk:17-jdk
+          docker save openjdk:17-jdk -o openjdk17.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
