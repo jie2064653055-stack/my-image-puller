@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull kubernetesui/dashboard:v2.7.0
-          docker save kubernetesui/dashboard:v2.7.0 -o dashboard.tar
+          docker pull docker.io/library/openjdk:17
+          docker save docker.io/library/openjdk:17 -o openjdk17.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dashboard-package
-          path: dashboard.tar
+          name: openjdk17-package
+          path: openjdk17
           retention-days: 1
