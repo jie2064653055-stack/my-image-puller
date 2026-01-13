@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker container-registry.oracle.com/java/openjdk:17
-          docker container-registry.oracle.com/java/openjdk:17 -o openjdk17.tar
+          docker pull sizx/dm8:1-2-128-22.08.04-166351-20005-CTM
+          docker save sizx/dm8:1-2-128-22.08.04-166351-20005-CTM -o dm8.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: openjdk17-package
-          path: openjdk17
+          name: dm8.tar-package
+          path: dm8.tar
           retention-days: 1
