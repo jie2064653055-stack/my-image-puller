@@ -13,12 +13,12 @@ jobs:
       - name: Pull and Save Image
         run: |
           # 更改为你需要的实际镜像名，例如 pch18/baota
-          docker pull sizx/dm8:1-2-128-22.08.04-166351-20005-CTM
-          docker save sizx/dm8:1-2-128-22.08.04-166351-20005-CTM -o dm8.tar
+          docker pull emqx/emqx:5.7.0
+          docker save emqx/emqx:5.7.0 -o emqx.tar
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dm8.tar-package
-          path: dm8.tar
+          name: emqx-package
+          path: emqx.tar
           retention-days: 1
